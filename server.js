@@ -10,7 +10,7 @@ router.route('/').get(function(req, res) {
    var headerData = {};
    headerData.ipaddress = req.headers['x-forwarded-for'];
    headerData.language = req.headers['accept-language'].match(/([\W\w]+?),/)[1];
-   headerData.software = req.headers['user-agent'].match(/\((.+)\)/)[1];
+   headerData.software = req.headers['user-agent'].match(/\(([^)]+)\)/)[1];
    res.json(headerData); 
 });
 
